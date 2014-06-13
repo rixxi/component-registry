@@ -14,7 +14,7 @@ class ComponentRegistryExtension extends Nette\DI\CompilerExtension
 
 	const TAG_COMPONENT_REGISTRY = 'rixxi.componentRegistry';
 
-	const FRAKKIN_KEY = 'fraktories';
+	const FRAKKIN_KEY = 'fracktories';
 
 
 	public $defaults = array(
