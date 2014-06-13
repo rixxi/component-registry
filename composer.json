@@ -16,7 +16,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-            "Rixxi\\Application\\UI\\Control\\": "src/",
+			"Rixxi\\Application\\UI\\Presenter\\": "src/",
 			"Rixxi\\ComponentRegistry\\": "src/"
 		}
 	}
