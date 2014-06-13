@@ -1,0 +1,23 @@
+{
+	"name": "rixxi/component-registry",
+	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
+	"authors": [
+		{
+			"name": "Michal Gebauer",
+			"homepage": "http://mishak.net"
+		}
+	],
+	"support": {
+		"email": "mishak+rixxi@mishak.net",
+		"issues": "https://github.com/rixxi/component-registry"
+	},
+	"require": {
+		"nette/nette": "~2.0"
+	},
+	"autoload": {
+		"psr-0": {
+            "Rixxi\\Application\\UI\\Control\\": "src/",
+			"Rixxi\\ComponentRegistry\\": "src/"
+		}
+	}
+}
