@@ -82,7 +82,7 @@ class ComponentRegistryExtension extends Nette\DI\CompilerExtension
 					->setAutowired(FALSE);
 			}
 
-			$definition->setFactory('@' . $factory);
+			$definition->setFactory($factory);
 		}
 	}
 
