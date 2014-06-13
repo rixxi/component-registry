@@ -12,7 +12,7 @@ class ComponentRegistryExtension extends Nette\DI\CompilerExtension
 
 	const DEFAULT_FACTORY_METHOD = 'create';
 
-	const TAG_COMPONENT_FACTORY = 'component.factory';
+	const TAG_COMPONENT_REGISTRY = 'rixxi.componentRegistry';
 
 	const FRAKKIN_KEY = 'fraktories';
 
@@ -44,8 +44,8 @@ class ComponentRegistryExtension extends Nette\DI\CompilerExtension
 	public function beforeCompile()
 	{
 		$builder = $this->getContainerBuilder();
-		foreach ($registry = $builder->findByTag(self::TAG_COMPONENT_FACTORY) as $name => $component) {
-			Validators::assert($component, 'string', 'tag ' . self::TAG_COMPONENT_FACTORY);
+		foreach ($registry = $builder->findByTag(self::TAG_COMPONENT_REGISTRY) as $name => $component) {
+			Validators::assert($component, 'string', 'tag ' . self::TAG_COMPONENT_REGISTRY);
 			/* @var ServiceDefinition $definition */
 			$factory = $builder->getDefinition($name)->getFactory()->getEntity();
 			if (strpos($factory[0], '@') === 0) {
@@ -78,7 +78,7 @@ class ComponentRegistryExtension extends Nette\DI\CompilerExtension
 
 			} else {
 				$definition = $builder->addDefinition($name)
-					->addTag(self::TAG_COMPONENT_FACTORY, $component)
+					->addTag(self::TAG_COMPONENT_REGISTRY, $component)
 					->setAutowired(FALSE);
 			}
 
