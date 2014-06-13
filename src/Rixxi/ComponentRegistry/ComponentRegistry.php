@@ -9,6 +9,9 @@ use Nette\DI\Container;
 class ComponentRegistry extends Nette\Object
 {
 
+	/** @vat callback[] */
+	public $onCreateComponent = [];
+
 	/** @var Container */
 	private $container;
 
@@ -26,7 +29,9 @@ class ComponentRegistry extends Nette\Object
 	public function createComponent($name)
 	{
 		if (isset($this->registry[$name])) {
-			return $this->container->createService($this->registry[$name]);
+			$component = $this->container->createService($this->registry[$name]);
+			$this->onCreateComponent($component);
+			return $component;
 		}
 	}
 
