@@ -4,6 +4,7 @@ namespace Rixxi\ComponentRegistry\DI;
 
 use Nette;
 use Nette\DI\ServiceDefinition;
+use Nette\Reflection\Method;
 use Nette\Utils\Validators;
 
 
@@ -82,6 +83,10 @@ class ComponentRegistryExtension extends Nette\DI\CompilerExtension
 					->setAutowired(FALSE);
 			}
 
+			list($class, $method) = explode('::', $factory);
+			if (!Method::from($class, $method)->isStatic()) {
+				$factory = '@' . $factory;
+			}
 			$definition->setFactory($factory);
 		}
 	}
